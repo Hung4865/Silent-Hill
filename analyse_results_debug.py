@@ -10,8 +10,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from pandas import Series, date_range
-import matplotlib.pyplot as plt
-import numpy as np
 import json
 from scipy import stats
 import matplotlib.patheffects as pe
