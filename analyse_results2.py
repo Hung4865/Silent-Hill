@@ -10,9 +10,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from scipy import stats
-import os, glob
+import os, glob #thêm thư viên
 time = 1000000
-pathSimple ="exp_rev/"
+pathSimple ="exp_rev/"  #chỉnh lại ví trị Path để đọc thư mục
 
 # =============================================================================
 # ALERTA: PREPARA LOS RESULTADOS - LOS GRAFICOS SON GENERADOS en 2b
@@ -155,7 +155,7 @@ NEW = False
 # Normal loads
 # =============================================================================
 
-# Partition
+# chỉnh lại cách đọc đúng tên file .csv
 all_files = glob.glob(path + "_*.csv")
 print("Partition files found:", all_files)
 if not all_files:
