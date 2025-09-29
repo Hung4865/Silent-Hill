@@ -9,4 +9,4 @@ myPlot.py (bài báo)
     def plotFailures(self):  -> Figure5
 
     
-Analyse_Result2.py (YAFS 2) -> Figure6
+Analyse_Result2.py (YAFS 2) -> Figure6 và Figure 4 (dòng 322 đang bị commented)
