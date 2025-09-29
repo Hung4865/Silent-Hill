@@ -10,9 +10,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from scipy import stats
-import os, glob #thêm thư viên
+import os, glob
 time = 1000000
-pathSimple ="exp_rev/"  #chỉnh lại ví trị Path để đọc thư mục
+pathSimple ="exp_rev/"
 
 # =============================================================================
 # ALERTA: PREPARA LOS RESULTADOS - LOS GRAFICOS SON GENERADOS en 2b
@@ -155,7 +155,7 @@ NEW = False
 # Normal loads
 # =============================================================================
 
-# chỉnh lại cách đọc đúng tên file .csv
+# Partition
 all_files = glob.glob(path + "_*.csv")
 print("Partition files found:", all_files)
 if not all_files:
@@ -170,6 +170,27 @@ if not all_files_ilp:
 
 dfILP = pd.concat([pd.read_csv(f) for f in all_files_ilp], ignore_index=True)
 
+dtmp = df[df["module.src"]=="None"].groupby(['app','TOPO.src'])['id'].apply(list)
+dr, timeC = getRbyApp(df, dtmp)
+drAll = getAllR(dr)
+
+dtmp2 = dfILP[dfILP["module.src"]=="None"].groupby(['app','TOPO.src'])['id'].apply(list)
+drILP, timeILP = getRbyApp(dfILP, dtmp2)
+drAllILP = getAllR(drILP)
+
+
+
+# ================= GỌI HÀM VẼ =================
+# Vẽ từng ứng dụng so sánh Partition vs ILP theo User
+for app in dr.app.unique():
+    print("Đang vẽ App", app)
+    drawBoxPlot_Both_USER(app, dr, drILP)
+
+# Vẽ tổng hợp tất cả ứng dụng
+drawBoxPlot_App(drAll, drAllILP, "Partition", "ILP")
+plt.savefig(pathSimple + "AllApps.png")
+plt.close()
+# ==============================================
 
 # =============================================================================
 # FAILs CENTRALITY load
