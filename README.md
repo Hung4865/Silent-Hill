@@ -10,3 +10,8 @@ myPlot.py (bài báo)
 
     
 Analyse_Result2.py (YAFS 2) -> Figure6 và Figure 4 (dòng 322 đang bị commented)
+
+
+https://github.com/acsicuib/FogServicePlacement-ILPvsCN?utm_source=chatgpt.com
+https://github.com/acsicuib/YAFS
+https://arxiv.org/abs/2401.12690
